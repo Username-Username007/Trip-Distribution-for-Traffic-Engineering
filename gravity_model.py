@@ -45,5 +45,7 @@ total_f_cost = f_cost.sum().sum()
 df.iloc[:n_nodes, :n_nodes] = f_cost* total_trip/total_f_cost
 
 df = pd.DataFrame(np.round(Furness(df), 3))
-
+df.index = range(1, df.shape[0]+1)
+df.columns = range(1, df.shape[1]+1)
+df.rename(index={df.shape[0]:"sum"}, columns={df.shape[0]:"sum"}, inplace=True)
 print(df)
